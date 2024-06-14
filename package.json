@@ -1,6 +1,20 @@
 {
-  "name": "cloud-storage",
+  "name": "Cloud Storage React Next.js Shadcn Convex Clerk",
   "version": "0.1.0",
+  "author": "Mohamed Abdelhady",
+  "description": "A cutting-edge cloud storage solution similar to Google Drive, built with modern technologies including React, Next.js, Shadcn, Convex, and Clerk. Seamlessly manage and share your files with high performance, security, and user-friendly interfaces.",
+  "keywords": [
+    "cloud storage",
+    "file sharing",
+    "Google Drive alternative",
+    "React",
+    "Next.js",
+    "Shadcn",
+    "Convex",
+    "Clerk"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/Mohammed-Abdelhady/Cloud-Storage-next.js-convex-clerk#readme",
   "private": true,
   "scripts": {
     "dev": "next dev",
