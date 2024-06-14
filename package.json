@@ -1,5 +1,5 @@
 {
-  "name": "Cloud Storage React Next.js Shadcn Convex Clerk",
+  "name": "Cloudix React Next.js Shadcn Convex Clerk",
   "version": "0.1.0",
   "author": "Mohamed Abdelhady",
   "description": "A cutting-edge cloud storage solution similar to Google Drive, built with modern technologies including React, Next.js, Shadcn, Convex, and Clerk. Seamlessly manage and share your files with high performance, security, and user-friendly interfaces.",
@@ -26,6 +26,9 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.2.4",
     "@clerk/nextjs": "^5.1.5",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "convex": "^1.12.1",

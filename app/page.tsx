@@ -1,3 +1,9 @@
+import GuestWrapper from "@/components/layout/wrappers/guest-wrapper";
+
 export default function Home() {
-  return <main>Home</main>;
+  return (
+    <GuestWrapper>
+      <></>
+    </GuestWrapper>
+  );
 }

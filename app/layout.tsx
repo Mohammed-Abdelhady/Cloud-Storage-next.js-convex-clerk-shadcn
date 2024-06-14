@@ -6,7 +6,7 @@ import ConvexClientProvider from "./ConvexClientProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cloud Storage",
+  title: "Cloudix",
   description:
     "A cutting-edge cloud storage solution similar to Google Drive, built with modern technologies including React, Next.js, Shadcn, Convex, and Clerk. Seamlessly manage and share your files with high performance, security, and user-friendly interfaces.",
 };
