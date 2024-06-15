@@ -1,9 +1,11 @@
 import Logo from "@/components/base/logo";
+import ThemeColorSwitcher from "@/components/base/theme-switcher";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+
 const links = [
   {
     name: "Features",
@@ -36,7 +38,7 @@ interface NavLinkProps {
  */
 const NavLink = ({ href, name }: NavLinkProps) => {
   return (
-    <Link href={href} className="text-muted-foreground hover:text-foreground transition-colors">
+    <Link href={href} className="text-muted-foreground transition-colors hover:text-foreground">
       {name}
     </Link>
   );
@@ -68,6 +70,7 @@ const MobileSlide = () => {
     </Sheet>
   );
 };
+
 /**
  * Renders the guest navigation component.
  *
@@ -75,7 +78,7 @@ const MobileSlide = () => {
  */
 const GuestNav = () => {
   return (
-    <header className="bg-background sticky top-0 flex h-16 items-center gap-4 border-b px-4 md:px-6">
+    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         {/* Logo */}
         <Logo />
@@ -94,6 +97,7 @@ const GuestNav = () => {
             <Button color="primary">Sign In</Button>
           </div>
         </div>
+        <ThemeColorSwitcher />
       </div>
     </header>
   );

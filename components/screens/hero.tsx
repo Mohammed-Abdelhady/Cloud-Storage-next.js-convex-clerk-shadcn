@@ -17,6 +17,7 @@ const Hero = () => {
       <Button size="lg">Get Started</Button>
       <>
         <Image
+          priority
           src="/images/hero-screen.png"
           alt="Effortless file collaboration in the Cloud for remote teams"
           width={1127}
