@@ -15,7 +15,7 @@ const GuestWrapper = ({ children }: GuestWrapperProps) => {
   return (
     <>
       <GuestNav />
-      <main>{children}</main>
+      <main className="md:container md:mx-auto">{children}</main>
     </>
   );
 };
