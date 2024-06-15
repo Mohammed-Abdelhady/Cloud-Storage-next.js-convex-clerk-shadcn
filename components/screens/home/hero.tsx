@@ -1,7 +1,7 @@
 import React from "react";
-import Heading from "../base/heading/Heading";
-import Paragraph from "../base/heading/Paragraph";
-import { Button } from "../ui/button";
+import Heading from "../../base/heading/heading";
+import Paragraph from "../../base/heading/paragraph";
+import { Button } from "../../ui/button";
 import Image from "next/image";
 
 const Hero = () => {
