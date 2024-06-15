@@ -3,10 +3,11 @@ import Heading from "../../base/heading/heading";
 import Paragraph from "../../base/heading/paragraph";
 import { Button } from "../../ui/button";
 import Image from "next/image";
+import Center from "@/components/base/center";
 
 const Hero = () => {
   return (
-    <div className="flex min-h-[calc(100vh-64px)] flex-col items-center justify-center gap-4 px-3 pt-20 text-center">
+    <Center className="min-h-[calc(100vh-64px)] gap-4 text-center">
       <Heading align="center" size="large" className="max-w-4xl">
         Effortless file collaboration in the Cloud for remote teams.
       </Heading>
@@ -25,7 +26,7 @@ const Hero = () => {
           className="object-cover"
         />
       </>
-    </div>
+    </Center>
   );
 };
 

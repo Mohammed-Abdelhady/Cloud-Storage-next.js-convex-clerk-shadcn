@@ -92,11 +92,10 @@ const GuestNav = () => {
       <MobileSlide />
       {/* Right side (Actions) */}
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-        <div className="ml-auto flex-1 sm:flex-initial">
-          <div className="relative">
-            <Button color="primary">Sign In</Button>
-          </div>
-        </div>
+        <div className="ml-auto" />
+        {/* Authnetication */}
+        <Button color="primary">Sign In</Button>
+        {/* Theme Switcher */}
         <ThemeColorSwitcher />
       </div>
     </header>
