@@ -3,13 +3,7 @@ import Heading from "@/components/base/heading/heading";
 import FeatureCard from "@/components/cards/feature-card";
 import { BoxSelect, SendToBack, ShieldCheck } from "lucide-react";
 import React from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 /**
  * Renders a list of features with icons, titles, and descriptions.
  *
@@ -37,7 +31,7 @@ const Features = () => {
     },
   ];
   return (
-    <Center className="gap-20" id="features">
+    <Center className="gap-20 py-10 md:py-20" id="features">
       {/* Title */}
       <Heading tag="h2" size="medium">
         Lightning fast. Better privacy. Fairer cost.

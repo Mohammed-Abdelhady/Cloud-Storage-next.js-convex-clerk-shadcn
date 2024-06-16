@@ -10,6 +10,14 @@ interface FeatureCardProps {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
+/**
+ * Renders a feature card component with the given title, description, and icon.
+ *
+ * @param {string} title - The title of the feature card.
+ * @param {string} description - The description of the feature card.
+ * @param {React.ElementType} icon - The icon component for the feature card.
+ * @return {JSX.Element} The rendered feature card component.
+ */
 const FeatureCard = ({ title, description, icon: Icon }: FeatureCardProps) => {
   return (
     <Center className="cursor-pointer items-start gap-3 overflow-hidden rounded-xl bg-primary p-6 md:p-14">

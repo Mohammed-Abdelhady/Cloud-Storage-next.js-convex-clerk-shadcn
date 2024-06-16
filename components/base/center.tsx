@@ -22,7 +22,7 @@ const Center = ({ isCol = true, children, className, id }: CenterProps) => {
     <div
       id={id || ""}
       className={cn(
-        `flex items-center justify-center text-center ${isCol ? "flex-col" : "flex-row"}`,
+        `flex items-center justify-center text-center ${isCol ? "flex-col" : "flex-row"} w-full`,
         className,
       )}
     >

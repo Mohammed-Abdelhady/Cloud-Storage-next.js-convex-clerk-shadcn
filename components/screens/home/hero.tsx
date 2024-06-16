@@ -7,7 +7,7 @@ import Center from "@/components/base/center";
 
 const Hero = () => {
   return (
-    <Center className="min-h-[calc(100vh-64px)] gap-4 text-center">
+    <Center className="min-h-[calc(100vh-64px)] gap-4 py-10 text-center md:py-20">
       <Heading align="center" size="large" className="max-w-4xl">
         Effortless file collaboration in the Cloud for remote teams.
       </Heading>

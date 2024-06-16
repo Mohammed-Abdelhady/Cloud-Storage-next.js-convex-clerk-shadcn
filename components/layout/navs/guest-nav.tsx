@@ -6,14 +6,14 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const links = [
+const LINKS = [
   {
     name: "Features",
     href: "#features",
   },
   {
     name: "Solutions",
-    href: "#solutions",
+    href: "#productivity",
   },
   {
     name: "Availability",
@@ -62,7 +62,7 @@ const MobileSlide = () => {
       <SheetContent side="left">
         <nav className="grid gap-6 text-lg font-medium">
           <Logo />
-          {links.map((link) => (
+          {LINKS.map((link) => (
             <NavLink key={link.name} href={link.href} name={link.name} />
           ))}
         </nav>
@@ -83,7 +83,7 @@ const GuestNav = () => {
         {/* Logo */}
         <Logo />
         {/* Links */}
-        {links.map((link) => (
+        {LINKS.map((link) => (
           <NavLink key={link.name} href={link.href} name={link.name} />
         ))}
       </nav>
