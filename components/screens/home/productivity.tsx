@@ -1,5 +1,5 @@
 import Flex from "@/components/base/center";
-import Heading from "@/components/base/heading/heading";
+import Heading from "@/components/base/typography/heading";
 import ExplanationCard from "@/components/cards/explanation-card";
 import SharingCard from "@/components/cards/sharing-card";
 import React from "react";

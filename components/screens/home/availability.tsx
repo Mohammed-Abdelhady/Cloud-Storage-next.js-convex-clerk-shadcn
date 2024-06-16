@@ -1,6 +1,6 @@
 import Flex from "@/components/base/center";
-import Heading from "@/components/base/heading/heading";
-import Paragraph from "@/components/base/heading/paragraph";
+import Heading from "@/components/base/typography/heading";
+import Paragraph from "@/components/base/typography/paragraph";
 import { cn } from "@/lib/utils";
 import { CodeXml, DoorOpen, Router, ShieldCheck, TreePalm } from "lucide-react";
 import React from "react";

@@ -1,6 +1,6 @@
 import React from "react";
-import Heading from "../../base/heading/heading";
-import Paragraph from "../../base/heading/paragraph";
+import Heading from "../../base/typography/heading";
+import Paragraph from "../../base/typography/paragraph";
 import { Button } from "../../ui/button";
 import Image from "next/image";
 import Flex from "@/components/base/center";

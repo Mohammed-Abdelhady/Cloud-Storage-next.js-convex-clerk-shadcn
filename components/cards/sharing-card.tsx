@@ -1,7 +1,7 @@
 import React from "react";
 import Flex from "../base/center";
-import Heading from "../base/heading/heading";
-import Paragraph from "../base/heading/paragraph";
+import Heading from "../base/typography/heading";
+import Paragraph from "../base/typography/paragraph";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 

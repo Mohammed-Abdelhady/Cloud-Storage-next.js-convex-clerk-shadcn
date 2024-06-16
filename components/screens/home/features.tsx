@@ -1,5 +1,5 @@
 import Flex from "@/components/base/center";
-import Heading from "@/components/base/heading/heading";
+import Heading from "@/components/base/typography/heading";
 import FeatureCard from "@/components/cards/feature-card";
 import { BoxSelect, SendToBack, ShieldCheck } from "lucide-react";
 import React from "react";
