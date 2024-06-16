@@ -54,7 +54,7 @@ const Paragraph = ({
     sizeClasses[size],
     alignClasses[align],
     maxWidthClasses[maxWidth],
-    "font-light",
+    "font-light text-gray-500",
     className,
   );
 

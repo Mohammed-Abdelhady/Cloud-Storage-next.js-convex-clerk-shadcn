@@ -19,10 +19,6 @@ const LINKS = [
     name: "Availability",
     href: "#availability",
   },
-  {
-    name: "Flow",
-    href: "#flow",
-  },
 ];
 
 interface NavLinkProps {

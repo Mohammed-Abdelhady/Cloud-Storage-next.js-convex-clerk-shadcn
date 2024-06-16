@@ -24,10 +24,10 @@ const FeatureCard = ({ title, description, icon: Icon }: FeatureCardProps) => {
       <div className="rounded-full bg-secondary p-3 md:p-5">
         <Icon className="h-8 w-8 text-primary md:h-12 md:w-12" />
       </div>
-      <Heading tag="h3" size="small">
+      <Heading tag="h3" size="small" className="text-white">
         {title}
       </Heading>
-      <Paragraph size="small" maxWidth="md">
+      <Paragraph size="small" maxWidth="md" className="text-gray-300">
         {description}
       </Paragraph>
     </Center>

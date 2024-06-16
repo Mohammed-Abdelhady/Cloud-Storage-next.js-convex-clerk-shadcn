@@ -29,11 +29,11 @@ const Heading = ({
 }: HeadingProps) => {
   const sizeClasses = {
     large:
-      "text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-snug md:leading-snug lg:leading-normal",
+      "text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none sm:leading-snug md:leading-tight lg:leading-snug",
     medium:
-      "text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug sm:leading-normal md:leading-relaxed lg:leading-loose",
+      "text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-none sm:leading-normal md:leading-tight lg:leading-snug",
     small:
-      "text-lg sm:text-xl md:text-2xl lg:text-3xl leading-normal sm:leading-relaxed md:leading-loose lg:leading-loose",
+      "text-lg sm:text-xl md:text-2xl lg:text-3xl leading-none sm:leading-relaxed md:leading-tight lg:leading-snug",
   };
 
   const alignClasses = {
