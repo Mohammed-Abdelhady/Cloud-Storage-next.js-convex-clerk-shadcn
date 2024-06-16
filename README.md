@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cloudix
 
-## Getting Started
+## Description
 
-First, run the development server:
+Cloudix is a powerful and user-friendly cloud storage solution designed for seamless file storage and sharing. Built with modern web technologies, Cloudix offers lightweight, decentralized, and subscription-free storage options, enhancing team collaboration and ensuring data privacy.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **React**: A JavaScript library for building user interfaces.
+- **Next.js**: A React framework for server-side rendering and generating static websites.
+- **Convex**: A backend-as-a-service that simplifies building scalable applications.
+- **Clerk**: Authentication and user management made easy.
+- **Shadcn**: A component library for building consistent and accessible user interfaces.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Live Demo**: [Cloudix](https://cloudix.vercel.app/)
+- **YouTube Demo**: SOON
 
-## Learn More
+## Requirements
 
-To learn more about Next.js, take a look at the following resources:
+### Software Requirements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js (v18.x or higher)
+- npm (v7.x or higher) or yarn (v1.x or higher)
+- Convex Account: [Convex Quickstart](https://docs.convex.dev/quickstart/nextjs)
+- Clerk Account: [Clerk Quickstart](https://clerk.com/docs/quickstarts/nextjs)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Environment Setup
 
-## Deploy on Vercel
+1. **Clone the repository**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/Mohammed-Abdelhady/Cloud-Storage-next.js-convex-clerk-shadcn.git
+   cd Cloud-Storage-next.js-convex-clerk-shadcn
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. **Environment Variables**:
+   Copy `.env.local.example` to `.env.local` and fill in the required environment variables.
+
+   ```bash
+   cp .env.local.example .env.local
+   ```
+
+3. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+4. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+## Production Mode
+
+### Requirements
+
+- **Docker**: [Install Docker](https://docs.docker.com/engine/install/)
+- **Docker Compose**: [Install Docker Compose](https://docs.docker.com/compose/install/linux/)
+
+### Steps to Run in Production
+
+1. **Build the Docker Image**:
+
+   ```bash
+   docker-compose build
+   ```
+
+2. **Start the Containers**:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+   - The `docker-compose up -d` command runs the containers in detached mode, allowing them to run in the background.
+
+3. **Stopping the Containers**:
+
+   ```bash
+   docker-compose down
+   ```
+
+   - The `docker-compose down` command stops and removes the containers, networks, and volumes created by `up`.
+
+### Explanation of Commands
+
+- `docker-compose build`: Builds the Docker images defined in the `docker-compose.yml` file.
+- `docker-compose up -d`: Starts the services defined in the `docker-compose.yml` file in detached mode.
+- `docker-compose down`: Stops and removes the services, networks, and volumes defined in the `docker-compose.yml` file.
+
+## Contributing
+
+We welcome contributions! Please read our Contributing Guide in the repository to learn how you can help.
+
+## License
+
+This project is licensed under the MIT License.
