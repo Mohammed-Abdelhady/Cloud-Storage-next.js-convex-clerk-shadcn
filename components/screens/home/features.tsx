@@ -1,4 +1,4 @@
-import Center from "@/components/base/center";
+import Flex from "@/components/base/center";
 import Heading from "@/components/base/heading/heading";
 import FeatureCard from "@/components/cards/feature-card";
 import { BoxSelect, SendToBack, ShieldCheck } from "lucide-react";
@@ -31,7 +31,7 @@ const Features = () => {
     },
   ];
   return (
-    <Center className="gap-20 py-10 md:py-20" id="features">
+    <Flex className="gap-20 py-10 md:py-20" id="features">
       {/* Title */}
       <Heading tag="h2" size="medium">
         Lightning fast. Better privacy. Fairer cost.
@@ -43,7 +43,7 @@ const Features = () => {
           <FeatureCard {...feature} />
         ))}
       </div>
-    </Center>
+    </Flex>
   );
 };
 

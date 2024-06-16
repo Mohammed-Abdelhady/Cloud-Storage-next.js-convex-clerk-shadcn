@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface CenterProps {
+interface FlexProps {
   isCol?: boolean;
   children: React.ReactNode;
   className?: string;
@@ -17,7 +17,7 @@ interface CenterProps {
  * @param {string} id - The ID attribute for the container.
  * @return {JSX.Element} The centered container.
  */
-const Center = ({ isCol = true, children, className, id }: CenterProps) => {
+const Flex = ({ isCol = true, children, className, id }: FlexProps) => {
   return (
     <div
       id={id || ""}
@@ -31,4 +31,4 @@ const Center = ({ isCol = true, children, className, id }: CenterProps) => {
   );
 };
 
-export default Center;
+export default Flex;

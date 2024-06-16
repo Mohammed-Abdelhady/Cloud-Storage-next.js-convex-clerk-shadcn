@@ -3,11 +3,11 @@ import Heading from "../../base/heading/heading";
 import Paragraph from "../../base/heading/paragraph";
 import { Button } from "../../ui/button";
 import Image from "next/image";
-import Center from "@/components/base/center";
+import Flex from "@/components/base/center";
 
 const Hero = () => {
   return (
-    <Center className="min-h-[calc(100vh-64px)] gap-4 py-10 text-center md:py-20">
+    <Flex className="min-h-[calc(100vh-64px)] gap-4 py-10 text-center md:py-20">
       <Heading align="center" size="large" className="max-w-4xl">
         Effortless file collaboration in the Cloud for remote teams.
       </Heading>
@@ -26,7 +26,7 @@ const Hero = () => {
           className="object-cover"
         />
       </>
-    </Center>
+    </Flex>
   );
 };
 

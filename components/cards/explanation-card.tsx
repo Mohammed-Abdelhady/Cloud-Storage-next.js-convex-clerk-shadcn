@@ -1,5 +1,5 @@
 import React from "react";
-import Center from "../base/center";
+import Flex from "../base/center";
 import Heading from "../base/heading/heading";
 import Paragraph from "../base/heading/paragraph";
 import { Button } from "../ui/button";
@@ -21,7 +21,7 @@ interface ExplanationCardProps {
  */
 const ExplanationCard = ({ title, description, imageSrc }: ExplanationCardProps) => {
   return (
-    <Center
+    <Flex
       className="flex-col-reverse justify-between rounded-xl bg-secondary px-10 py-3 md:flex-row"
       isCol={false}
     >
@@ -39,7 +39,7 @@ const ExplanationCard = ({ title, description, imageSrc }: ExplanationCardProps)
       <div>
         <Image src={imageSrc} alt={description} width={515.5} height={494.88} />
       </div>
-    </Center>
+    </Flex>
   );
 };
 

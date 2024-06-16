@@ -1,4 +1,4 @@
-import Center from "@/components/base/center";
+import Flex from "@/components/base/center";
 import Heading from "@/components/base/heading/heading";
 import Paragraph from "@/components/base/heading/paragraph";
 import { cn } from "@/lib/utils";
@@ -46,7 +46,7 @@ const RIGHT_SIDE_FEATURE = [
 
 const Availability = () => {
   return (
-    <Center isCol={false} className="justify-between gap-6 py-10 md:py-20" id="availability">
+    <Flex isCol={false} className="justify-between gap-6 py-10 md:py-20" id="availability">
       {/* Left Section */}
       <div className="flex-1">
         <Heading tag="h2" size="medium">
@@ -68,7 +68,7 @@ const Availability = () => {
           {RIGHT_SIDE_FEATURE?.map((feature) => <Feature key={feature.title} {...feature} isRow />)}
         </div>
       </div>
-    </Center>
+    </Flex>
   );
 };
 

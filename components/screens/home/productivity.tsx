@@ -1,4 +1,4 @@
-import Center from "@/components/base/center";
+import Flex from "@/components/base/center";
 import Heading from "@/components/base/heading/heading";
 import ExplanationCard from "@/components/cards/explanation-card";
 import SharingCard from "@/components/cards/sharing-card";
@@ -38,19 +38,19 @@ const EXPLANATION = {
  */
 const Productivity = () => {
   return (
-    <Center isCol className="items-start gap-4 py-10 md:py-20" id="productivity">
+    <Flex isCol className="items-start gap-4 py-10 md:py-20" id="productivity">
       <Heading tag="h2" size="medium" align="left">
         Lightweight design, ready to
         <br />
         use for <span className="text-primary">team productivity</span>.
       </Heading>
-      <Center className="gap-6 md:flex-row">
+      <Flex className="gap-6 md:flex-row">
         {SHARING.map((data) => {
           return <SharingCard key={data.title} {...data} />;
         })}
-      </Center>
+      </Flex>
       <ExplanationCard {...EXPLANATION} />
-    </Center>
+    </Flex>
   );
 };
 

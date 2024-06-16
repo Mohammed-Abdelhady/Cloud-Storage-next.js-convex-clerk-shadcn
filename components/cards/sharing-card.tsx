@@ -1,5 +1,5 @@
 import React from "react";
-import Center from "../base/center";
+import Flex from "../base/center";
 import Heading from "../base/heading/heading";
 import Paragraph from "../base/heading/paragraph";
 import Image from "next/image";
@@ -24,7 +24,7 @@ interface SharingCardProps {
  */
 const SharingCard = ({ title, description, imageSrc, bg }: SharingCardProps) => {
   return (
-    <Center className={cn(`${bg} rounded-xl px-3`)}>
+    <Flex className={cn(`${bg} rounded-xl px-3`)}>
       <Heading tag="h3" size="small" className="mt-10 text-primary">
         {title}
       </Heading>
@@ -32,7 +32,7 @@ const SharingCard = ({ title, description, imageSrc, bg }: SharingCardProps) => 
         {description}
       </Paragraph>
       <Image width={479} height={479} src={imageSrc} alt={title} />
-    </Center>
+    </Flex>
   );
 };
 

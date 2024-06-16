@@ -1,4 +1,4 @@
-import Center from "@/components/base/center";
+import Flex from "@/components/base/center";
 import GuestWrapper from "@/components/layout/wrappers/guest-wrapper";
 import Productivity from "@/components/screens/home/productivity";
 import Features from "@/components/screens/home/features";
@@ -8,7 +8,7 @@ import Availability from "@/components/screens/home/availability";
 export default function Home() {
   return (
     <GuestWrapper>
-      <Center className="px-3">
+      <Flex className="px-3">
         {/* Hero Section */}
         <Hero />
         {/* Feature Section */}
@@ -17,7 +17,7 @@ export default function Home() {
         <Productivity />
         {/* Availability Section */}
         <Availability />
-      </Center>
+      </Flex>
     </GuestWrapper>
   );
 }
