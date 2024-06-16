@@ -19,6 +19,11 @@ const SHARING = [
     bg: "bg-light-blue",
   },
 ];
+/**
+ * Renders the Productivity component with a lightweight design suitable for team productivity.
+ *
+ * @return {JSX.Element} The rendered Productivity component.
+ */
 const Productivity = () => {
   return (
     <Center isCol className="items-start gap-4 py-10 md:py-20" id="productivity">
