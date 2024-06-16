@@ -1,5 +1,6 @@
 import Center from "@/components/base/center";
 import Heading from "@/components/base/heading/heading";
+import ExplanationCard from "@/components/cards/explanation-card";
 import SharingCard from "@/components/cards/sharing-card";
 import React from "react";
 
@@ -8,17 +9,28 @@ const SHARING = [
     title: "File Sharing",
     description:
       "Securely share files within or outside your organization, and control access, track edits, and analyze the shared content stats.",
-    imageURL: "/images/file-sharing.png",
+    imageSrc: "/images/file-sharing.png",
     bg: "bg-cream",
   },
   {
     title: "Collect Files",
     description:
       "You can collect and receive files in a secure environment, even if the other person doesn’t have a Deupload account.",
-    imageURL: "/images/collect-files.png",
+    imageSrc: "/images/collect-files.png",
     bg: "bg-light-blue",
   },
 ];
+const EXPLANATION = {
+  title: (
+    <>
+      <span className="text-primary">Team collaboration</span> in one simple place with privacy come
+      first.
+    </>
+  ),
+  description:
+    "Securely share and work together with Deupload’s simple file storage and sharing, easy user management, unlimited file size, password protected links and more.",
+  imageSrc: "/images/explanation.png",
+};
 /**
  * Renders the Productivity component with a lightweight design suitable for team productivity.
  *
@@ -37,6 +49,7 @@ const Productivity = () => {
           return <SharingCard key={data.title} {...data} />;
         })}
       </Center>
+      <ExplanationCard {...EXPLANATION} />
     </Center>
   );
 };
