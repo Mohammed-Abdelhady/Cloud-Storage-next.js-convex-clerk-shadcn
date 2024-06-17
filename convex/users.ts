@@ -47,6 +47,37 @@ export const createUser = internalMutation({
   },
 });
 
+export const updateUser = internalMutation({
+  args: { tokenIdentifier: v.string(), name: v.string(), image: v.string() },
+  /**
+   * Updates the user information in the database based on the provided token identifier.
+   *
+   * @param {QueryCtx | MutationCtx} ctx - The context object containing the database query function.
+   * @param {object} args - The arguments object containing the token identifier, name, and image.
+   * @param {string} args.tokenIdentifier - The unique identifier for the user.
+   * @param {string} args.name - The new name for the user.
+   * @param {string} args.image - The new image URL for the user.
+   * @return {Promise<void>} A promise that resolves when the user information is successfully updated.
+   * @throws {ConvexError} If no user with the provided token identifier is found.
+   */
+  async handler(ctx, args) {
+    const user = await ctx.db
+      .query("users")
+      //   @ts-ignore
+      .withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", args.tokenIdentifier))
+      .first();
+
+    if (!user) {
+      throw new ConvexError("no user with this token found");
+    }
+
+    await ctx.db.patch(user._id, {
+      name: args.name,
+      image: args.image,
+    });
+  },
+});
+
 export const getUserProfile = query({
   args: { userId: v.id("users") },
   /**
