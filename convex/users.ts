@@ -25,6 +25,28 @@ export async function getUser(ctx: QueryCtx | MutationCtx, tokenIdentifier: stri
   return user;
 }
 
+export const createUser = internalMutation({
+  args: { tokenIdentifier: v.string(), name: v.string(), image: v.string() },
+  /**
+   * Inserts a new user into the "users" table in the database.
+   *
+   * @param {Object} ctx - The context object containing the database connection.
+   * @param {Object} args - The arguments object containing the user's token identifier, name, and image.
+   * @param {string} args.tokenIdentifier - The unique identifier for the user.
+   * @param {string} args.name - The name of the user.
+   * @param {string} args.image - The image URL for the user.
+   * @return {Promise<void>} A promise that resolves when the user is successfully inserted.
+   */
+  async handler(ctx, args) {
+    await ctx.db.insert("users", {
+      tokenIdentifier: args.tokenIdentifier,
+      orgIds: [],
+      name: args.name,
+      image: args.image,
+    });
+  },
+});
+
 export const getUserProfile = query({
   args: { userId: v.id("users") },
   /**
