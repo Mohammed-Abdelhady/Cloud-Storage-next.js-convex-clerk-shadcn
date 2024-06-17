@@ -78,6 +78,28 @@ export const updateUser = internalMutation({
   },
 });
 
+export const addOrgIdToUser = internalMutation({
+  args: { tokenIdentifier: v.string(), orgId: v.string(), role: roles },
+  /**
+   * Updates the user's organization IDs and role in the database.
+   *
+   * @param {QueryCtx | MutationCtx} ctx - The context object for the query or mutation.
+   * @param {object} args - The arguments object containing the token identifier, organization ID, and role.
+   * @param {string} args.tokenIdentifier - The token identifier of the user.
+   * @param {string} args.orgId - The ID of the organization to add.
+   * @param {string} args.role - The role of the user in the organization.
+   * @return {Promise<void>} A promise that resolves when the user's organization IDs and role have been updated.
+   * @throws {ConvexError} If the user with the provided token identifier is not found.
+   */
+  async handler(ctx, args) {
+    const user = await getUser(ctx, args.tokenIdentifier);
+
+    await ctx.db.patch(user._id, {
+      orgIds: [...user.orgIds, { orgId: args.orgId, role: args.role }],
+    });
+  },
+});
+
 export const getUserProfile = query({
   args: { userId: v.id("users") },
   /**
