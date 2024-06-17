@@ -1,3 +1,4 @@
+import LoginAction from "@/components/auth/login-action";
 import Logo from "@/components/base/logo";
 import ThemeColorSwitcher from "@/components/base/theme-switcher";
 import { Button } from "@/components/ui/button";
@@ -90,7 +91,7 @@ const GuestNav = () => {
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <div className="ml-auto" />
         {/* Authnetication */}
-        <Button color="primary">Sign In</Button>
+        <LoginAction mode="sign-dash-switch">Sign In</LoginAction>
         {/* Theme Switcher */}
         <ThemeColorSwitcher />
       </div>

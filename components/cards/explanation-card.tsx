@@ -4,6 +4,7 @@ import Heading from "../base/typography/heading";
 import Paragraph from "../base/typography/paragraph";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import LoginAction from "../auth/login-action";
 
 interface ExplanationCardProps {
   title: React.ReactNode;
@@ -32,9 +33,7 @@ const ExplanationCard = ({ title, description, imageSrc }: ExplanationCardProps)
         <Paragraph className="my-5 text-gray-500" size="small" maxWidth="lg" align="left">
           {description}
         </Paragraph>
-        <Button color="primary" size="lg">
-          Start now
-        </Button>
+        <LoginAction>Start now</LoginAction>
       </div>
       <div>
         <Image src={imageSrc} alt={description} width={515.5} height={494.88} />

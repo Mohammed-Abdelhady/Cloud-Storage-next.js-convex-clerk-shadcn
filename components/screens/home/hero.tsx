@@ -4,6 +4,7 @@ import Paragraph from "../../base/typography/paragraph";
 import { Button } from "../../ui/button";
 import Image from "next/image";
 import Flex from "@/components/base/center";
+import LoginAction from "@/components/auth/login-action";
 
 const Hero = () => {
   return (
@@ -15,7 +16,7 @@ const Hero = () => {
         Elevate collaboration with effortless Cloud-based file sharing and storage. Enhance team
         productivity and securely manage your documents from any device, anywhere.
       </Paragraph>
-      <Button size="lg">Get Started</Button>
+      <LoginAction>Get Started</LoginAction>
       <>
         <Image
           priority
