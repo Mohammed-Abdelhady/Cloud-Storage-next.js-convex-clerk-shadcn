@@ -35,6 +35,17 @@ export async function hasAccessToOrg(ctx: QueryCtx | MutationCtx, orgId: string)
 
   return { user };
 }
+
+// Upload File URL
+export const generateUploadUrl = mutation(async (ctx) => {
+  const identity = await ctx.auth.getUserIdentity();
+
+  if (!identity) {
+    throw new ConvexError("you must be logged in to upload a file");
+  }
+
+  return await ctx.storage.generateUploadUrl();
+});
 export const createFile = mutation({
   args: {
     name: v.string(),
@@ -79,6 +90,18 @@ export const getFiles = query({
     deletedOnly: v.optional(v.boolean()),
     type: v.optional(fileTypes),
   },
+  /**
+   * Handles the retrieval of files from the database based on the provided arguments.
+   *
+   * @param {object} ctx - The context object containing information about the current request.
+   * @param {object} args - The arguments object containing the file information.
+   * @param {string} args.orgId - The ID of the organization.
+   * @param {string} [args.query] - The query string to filter files by name.
+   * @param {boolean} [args.favorites] - Whether to filter files by favorites.
+   * @param {boolean} [args.deletedOnly] - Whether to filter files by deletion status.
+   * @param {string} [args.type] - The type of files to filter by.
+   * @return {Promise<Array<object>>} - A promise that resolves to an array of files with URLs.
+   */
   async handler(ctx, args) {
     const hasAccess = await hasAccessToOrg(ctx, args.orgId);
 
