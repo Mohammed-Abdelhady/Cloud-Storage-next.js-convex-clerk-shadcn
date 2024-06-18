@@ -234,3 +234,29 @@ export const deleteAllFiles = internalMutation({
     );
   },
 });
+
+export const restoreFile = mutation({
+  args: { fileId: v.id("files") },
+  /**
+   * Handles the deletion of a file.
+   *
+   * @param {MutationCtx} ctx - The mutation context containing the database connection.
+   * @param {object} args - The arguments object containing the file ID.
+   * @param {string} args.fileId - The ID of the file to be deleted.
+   * @return {Promise<void>} A promise that resolves when the file is successfully deleted.
+   * @throws {ConvexError} If the user does not have access to the file or if the file cannot be deleted.
+   */
+  async handler(ctx, args) {
+    const access = await hasAccessToFile(ctx, args.fileId);
+
+    if (!access) {
+      throw new ConvexError("no access to file");
+    }
+
+    assertCanDeleteFile(access.user, access.file);
+
+    await ctx.db.patch(args.fileId, {
+      shouldDelete: false,
+    });
+  },
+});
