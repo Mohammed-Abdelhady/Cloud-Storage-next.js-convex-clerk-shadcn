@@ -260,3 +260,41 @@ export const restoreFile = mutation({
     });
   },
 });
+
+export const toggleFavorite = mutation({
+  args: { fileId: v.id("files") },
+  /**
+   * Handles the logic for checking access to a file, adding it to favorites if not already favorited, and removing it from favorites if already favorited.
+   *
+   * @param {any} ctx - The query or mutation context.
+   * @param {any} args - The arguments passed to the function.
+   */
+  async handler(ctx, args) {
+    const access = await hasAccessToFile(ctx, args.fileId);
+
+    if (!access) {
+      throw new ConvexError("no access to file");
+    }
+
+    const favorite = await ctx.db
+      .query("favorites")
+      // @ts-ignore
+      .withIndex("by_userId_orgId_fileId", (q: any) =>
+        q
+          .eq("userId", access.user._id)
+          .eq("orgId", access.file.orgId)
+          .eq("fileId", access.file._id),
+      )
+      .first();
+
+    if (!favorite) {
+      await ctx.db.insert("favorites", {
+        fileId: access.file._id,
+        userId: access.user._id,
+        orgId: access.file.orgId,
+      });
+    } else {
+      await ctx.db.delete(favorite._id);
+    }
+  },
+});
