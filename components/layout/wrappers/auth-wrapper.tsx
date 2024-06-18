@@ -1,5 +1,6 @@
 import React from "react";
 import AuthNav from "../navs/auth-nav";
+import { SideNav } from "../navs/side-nav";
 
 interface AuthWrapperProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ const AuthWrapper = ({ children }: AuthWrapperProps) => {
   return (
     <>
       <AuthNav />
+      <SideNav />
       <main className="md:container md:mx-auto">{children}</main>
     </>
   );
