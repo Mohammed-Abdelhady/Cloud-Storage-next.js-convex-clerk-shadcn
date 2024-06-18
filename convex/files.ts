@@ -211,3 +211,26 @@ export const deleteFile = mutation({
     });
   },
 });
+export const deleteAllFiles = internalMutation({
+  args: {},
+  /**
+   * Asynchronously handles the deletion of all files marked for deletion.
+   *
+   * @param {MutationCtx<DataModel>} ctx - The mutation context containing the database connection.
+   * @return {Promise<void>} A promise that resolves when all files have been deleted.
+   */
+  async handler(ctx) {
+    const files = await ctx.db
+      .query("files")
+      // @ts-ignore
+      .withIndex("by_shouldDelete", (q) => q.eq("shouldDelete", true))
+      .collect();
+
+    await Promise.all(
+      files.map(async (file) => {
+        await ctx.storage.delete(file.fileId);
+        return await ctx.db.delete(file._id);
+      }),
+    );
+  },
+});
