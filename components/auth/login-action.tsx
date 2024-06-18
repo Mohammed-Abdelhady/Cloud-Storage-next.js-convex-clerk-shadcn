@@ -1,8 +1,9 @@
 "use client";
-import { SignInButton, SignOutButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import React from "react";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import Flex from "../base/center";
 
 interface LoginActionProps {
   children: React.ReactNode;
@@ -49,7 +50,12 @@ const LoginAction = ({ children, mode = "sign-only" }: LoginActionProps) => {
    * @returns {React.ReactElement} The redirect to dashboard button component.
    */
   const renderRedirectToDashboardButton = () => (
-    <Button onClick={() => router.push("/dashboard")}>Dashboard</Button>
+    <div className="flex items-center">
+      <Button onClick={() => router.push("/dashboard")} className="mr-3">
+        Dashboard
+      </Button>
+      <UserButton />
+    </div>
   );
 
   // Render the component based on the mode
