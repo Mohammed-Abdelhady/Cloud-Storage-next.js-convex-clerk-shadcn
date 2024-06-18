@@ -298,3 +298,31 @@ export const toggleFavorite = mutation({
     }
   },
 });
+
+export const getAllFavorites = query({
+  args: { orgId: v.string() },
+  /**
+   * Handles fetching favorites for a specific organization after checking user access.
+   *
+   * @param {QueryCtx | MutationCtx} ctx - The query or mutation context.
+   * @param {object} args - The arguments object containing the organization ID.
+   * @return {Promise<any[]>} An array of favorites if access is granted, otherwise an empty array.
+   */
+  async handler(ctx, args) {
+    const hasAccess = await hasAccessToOrg(ctx, args.orgId);
+
+    if (!hasAccess) {
+      return [];
+    }
+
+    const favorites = await ctx.db
+      .query("favorites")
+      // @ts-ignore
+      .withIndex("by_userId_orgId_fileId", (q: any) =>
+        q.eq("userId", hasAccess.user._id).eq("orgId", args.orgId),
+      )
+      .collect();
+
+    return favorites;
+  },
+});
