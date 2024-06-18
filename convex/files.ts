@@ -1,6 +1,7 @@
 import { ConvexError, v } from "convex/values";
 import { MutationCtx, QueryCtx, internalMutation, mutation, query } from "./_generated/server";
 import { fileTypes } from "./schema";
+import { Doc, Id } from "./_generated/dataModel";
 
 /**
  * Checks if the user identified by ctx has access to the organization with the provided orgId.
@@ -46,6 +47,30 @@ export const generateUploadUrl = mutation(async (ctx) => {
 
   return await ctx.storage.generateUploadUrl();
 });
+
+/**
+ * Checks if the user identified by ctx has access to the specified file.
+ *
+ * @param {QueryCtx | MutationCtx} ctx - The query or mutation context containing user information.
+ * @param {Id<"files">} fileId - The ID of the file to check access for.
+ * @return {Promise<{ user: any, file: Doc<"files"> } | null>} Returns an object containing the user and file if access is granted, otherwise null.
+ */
+async function hasAccessToFile(ctx: QueryCtx | MutationCtx, fileId: Id<"files">) {
+  const file = await ctx.db.get(fileId);
+
+  if (!file) {
+    return null;
+  }
+
+  const hasAccess = await hasAccessToOrg(ctx, file.orgId);
+
+  if (!hasAccess) {
+    return null;
+  }
+
+  return { user: hasAccess.user, file };
+}
+
 export const createFile = mutation({
   args: {
     name: v.string(),
@@ -151,5 +176,38 @@ export const getFiles = query({
     );
 
     return filesWithUrl;
+  },
+});
+/**
+ * Asserts whether the user can delete a file based on certain criteria.
+ *
+ * @param {Doc<"users">} user - The user trying to delete the file.
+ * @param {Doc<"files">} file - The file to be deleted.
+ * @return {void} Throws an error if the user does not have permission to delete the file.
+ */
+// @ts-ignore
+function assertCanDeleteFile(user: Doc<"users">, file: Doc<"files">) {
+  const canDelete =
+    file.userId === user._id ||
+    user.orgIds.find((org: any) => org.orgId === file.orgId)?.role === "admin";
+
+  if (!canDelete) {
+    throw new ConvexError("you have no acces to delete this file");
+  }
+}
+export const deleteFile = mutation({
+  args: { fileId: v.id("files") },
+  async handler(ctx, args) {
+    const access = await hasAccessToFile(ctx, args.fileId);
+
+    if (!access) {
+      throw new ConvexError("no access to file");
+    }
+
+    assertCanDeleteFile(access.user, access.file);
+
+    await ctx.db.patch(args.fileId, {
+      shouldDelete: true,
+    });
   },
 });
