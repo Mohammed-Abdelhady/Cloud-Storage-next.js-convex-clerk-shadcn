@@ -14,7 +14,6 @@ import { hasAccessToOrg } from "./files";
 export async function getUser(ctx: QueryCtx | MutationCtx, tokenIdentifier: string) {
   const user = await ctx.db
     .query("users")
-    // @ts-ignore
     .withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", tokenIdentifier))
     .first();
 
@@ -63,7 +62,6 @@ export const updateUser = internalMutation({
   async handler(ctx, args) {
     const user = await ctx.db
       .query("users")
-      //   @ts-ignore
       .withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", args.tokenIdentifier))
       .first();
 

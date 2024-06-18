@@ -19,7 +19,6 @@ export async function hasAccessToOrg(ctx: QueryCtx | MutationCtx, orgId: string)
 
   const user = await ctx.db
     .query("users")
-    // @ts-ignore
     .withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
     .first();
 
@@ -136,7 +135,6 @@ export const getFiles = query({
 
     let files = await ctx.db
       .query("files")
-      // @ts-ignore
       .withIndex("by_orgId", (q) => q.eq("orgId", args.orgId))
       .collect();
 
@@ -149,7 +147,6 @@ export const getFiles = query({
     if (args.favorites) {
       const favorites = await ctx.db
         .query("favorites")
-        // @ts-ignore
         .withIndex("by_userId_orgId_fileId", (q: any) =>
           q.eq("userId", hasAccess.user._id).eq("orgId", args.orgId),
         )
@@ -185,7 +182,6 @@ export const getFiles = query({
  * @param {Doc<"files">} file - The file to be deleted.
  * @return {void} Throws an error if the user does not have permission to delete the file.
  */
-// @ts-ignore
 function assertCanDeleteFile(user: Doc<"users">, file: Doc<"files">) {
   const canDelete =
     file.userId === user._id ||
@@ -222,7 +218,6 @@ export const deleteAllFiles = internalMutation({
   async handler(ctx) {
     const files = await ctx.db
       .query("files")
-      // @ts-ignore
       .withIndex("by_shouldDelete", (q) => q.eq("shouldDelete", true))
       .collect();
 
@@ -278,7 +273,6 @@ export const toggleFavorite = mutation({
 
     const favorite = await ctx.db
       .query("favorites")
-      // @ts-ignore
       .withIndex("by_userId_orgId_fileId", (q: any) =>
         q
           .eq("userId", access.user._id)
@@ -317,7 +311,6 @@ export const getAllFavorites = query({
 
     const favorites = await ctx.db
       .query("favorites")
-      // @ts-ignore
       .withIndex("by_userId_orgId_fileId", (q: any) =>
         q.eq("userId", hasAccess.user._id).eq("orgId", args.orgId),
       )
