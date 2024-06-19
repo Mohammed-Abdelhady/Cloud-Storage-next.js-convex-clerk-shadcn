@@ -60,7 +60,6 @@ const AuthNav = () => {
           <OrganizationSwitcher
             appearance={theme == "dark" ? (dark as any) : undefined}
             skipInvitationScreen
-            createOrganizationUrl="/dashboard/file"
           />
         </div>
         <div>
