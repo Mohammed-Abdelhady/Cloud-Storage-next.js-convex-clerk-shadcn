@@ -44,9 +44,7 @@ export function SearchBar({
 
   const debouncedSearchTerm = useDebounce<string>(form.watch("query"), 500);
   useEffect(() => {
-    if (debouncedSearchTerm) {
-      submitButtonRef?.current?.click();
-    }
+    submitButtonRef?.current?.click();
   }, [debouncedSearchTerm]);
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setQuery(values.query);
