@@ -26,7 +26,11 @@ const LoginAction = ({ children, mode = "sign-only" }: LoginActionProps) => {
    * @returns {React.ReactElement} The sign-in button component.
    */
   const renderSignInButton = () => (
-    <SignInButton mode="modal">
+    <SignInButton
+      mode="modal"
+      fallbackRedirectUrl={"/dashboard/files"}
+      signUpForceRedirectUrl={"/dashboard/files"}
+    >
       <Button color="primary" size="lg">
         {children}
       </Button>
@@ -51,7 +55,7 @@ const LoginAction = ({ children, mode = "sign-only" }: LoginActionProps) => {
    */
   const renderRedirectToDashboardButton = () => (
     <div className="flex items-center">
-      <Button onClick={() => router.push("/dashboard")} className="mr-3">
+      <Button onClick={() => router.push("/dashboard/files")} className="mr-3">
         Dashboard
       </Button>
       <UserButton />
