@@ -16,8 +16,10 @@ const AuthWrapper = ({ children }: AuthWrapperProps) => {
   return (
     <>
       <AuthNav />
-      <SideNav />
-      <main className="md:container md:mx-auto">{children}</main>
+      <div className="flex">
+        <SideNav />
+        <main className="md:container md:mx-auto">{children}</main>
+      </div>
     </>
   );
 };

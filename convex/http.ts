@@ -22,6 +22,7 @@ http.route({
         },
       });
 
+      console.log(process.env.CLERK_HOSTNAME, "process.env.CLERK_HOSTNAME");
       switch (result.type) {
         case "user.created":
           await ctx.runMutation(internal.users.createUser, {
