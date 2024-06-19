@@ -72,8 +72,8 @@ export function FileBrowser({
           orgId,
           type: fileType === "all" ? undefined : fileType,
           query: searchQuery,
-          favorites: showDeletedOnly,
-          deletedOnly: showFavoritesOnly,
+          favorites: showFavoritesOnly,
+          deletedOnly: showDeletedOnly,
         }
       : "skip",
   );
