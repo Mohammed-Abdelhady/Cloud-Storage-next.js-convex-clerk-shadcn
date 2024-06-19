@@ -28,7 +28,7 @@ import { Doc } from "@/convex/_generated/dataModel";
  */
 const NoFilesPlaceholder = () => (
   <div className="mt-24 flex flex-col items-center gap-4">
-    <Image alt="Empty folder illustration" width={300} height={300} src="/empty.svg" />
+    <Image alt="Empty folder illustration" width={300} height={300} src="/images/empty.svg" />
     <h3 className="text-2xl">No files uploaded yet</h3>
     <UploadButton />
   </div>
@@ -88,10 +88,12 @@ export function FileBrowser({
 
   return (
     <div>
-      <div className="mb-8 flex items-center justify-between">
+      <div className="my-10 flex items-center justify-between">
         <h1 className="text-4xl font-bold">{title}</h1>
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <UploadButton />
+        <div className="flex gap-3">
+          <SearchBar query={searchQuery} setQuery={setSearchQuery} />
+          <UploadButton />
+        </div>
       </div>
       <Tabs defaultValue="grid">
         <div className="mb-2 flex items-center justify-between">

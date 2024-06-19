@@ -1,9 +1,9 @@
 import Flex from "@/components/base/center";
 import GuestWrapper from "@/components/layout/wrappers/guest-wrapper";
-import Productivity from "@/components/screens/home/productivity";
-import Features from "@/components/screens/home/features";
-import Hero from "@/components/screens/home/hero";
-import Availability from "@/components/screens/home/availability";
+import Productivity from "@/app/_components/productivity";
+import Features from "@/app/_components/features";
+import Hero from "@/app/_components/hero";
+import Availability from "@/app/_components/availability";
 
 export default function Home() {
   return (
