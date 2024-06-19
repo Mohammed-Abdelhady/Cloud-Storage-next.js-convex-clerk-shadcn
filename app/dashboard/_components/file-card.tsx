@@ -50,14 +50,14 @@ export function FileCard({
         {file.type !== "image" && <div className="h-20 w-20">{getIcon(file.type)}</div>}
       </CardContent>
       <CardFooter className="flex justify-between">
-        <div className="flex w-40 items-center gap-2 text-xs text-gray-700">
+        <div className="flex w-40 items-center gap-2 text-xs text-gray-500">
           <Avatar className="h-6 w-6">
             <AvatarImage src={userProfile?.image} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           {userProfile?.name}
         </div>
-        <div className="text-xs text-gray-700">
+        <div className="text-xs text-gray-500">
           Uploaded on {formatRelative(new Date(file._creationTime), new Date())}
         </div>
       </CardFooter>

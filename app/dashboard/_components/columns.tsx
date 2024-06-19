@@ -19,7 +19,7 @@ function UserCell({ userId }: { userId: Id<"users"> }) {
   const userProfile = useQuery(api.users.getUserProfile, { userId });
 
   return (
-    <div className="flex items-center gap-2 text-xs text-gray-700">
+    <div className="flex items-center gap-2 text-xs text-gray-500">
       <Avatar>
         <AvatarImage src={userProfile?.image} />
         <AvatarFallback>CN</AvatarFallback>
