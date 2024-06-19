@@ -2,7 +2,9 @@
 
 ## Description
 
-Cloudix is a powerful and user-friendly cloud storage solution designed for seamless file storage and sharing. Built with modern web technologies, Cloudix offers lightweight, decentralized, and subscription-free storage options, enhancing team collaboration and ensuring data privacy.
+Discover a state-of-the-art cloud storage solution akin to Google Drive, powered by cutting-edge technologies such as React, Next.js, Shadcn, Convex, and Clerk. This platform empowers users to effortlessly manage and share files with unparalleled performance, robust security features, and intuitive user interfaces.
+
+Embrace the versatility of multi-organization support, where each organization enjoys distinct assets and the capability to invite members seamlessly. Experience the convenience of file management with functionalities including delete and restore options, along with the ability to mark files as favorites for quick access.
 
 ## Technologies Used
 
@@ -14,8 +16,8 @@ Cloudix is a powerful and user-friendly cloud storage solution designed for seam
 
 ## Demo
 
-- **Live Demo**: [Cloudix](https://cloudix.vercel.app/)
-- **YouTube Demo**: SOON
+- **Live Demo**: [Cloudix Demo Link](https://cloudix.vercel.app/)
+- **YouTube Demo**: [Youtube Link](https://youtu.be/Aan6-BmApnc)
 
 ## Requirements
 
@@ -36,19 +38,24 @@ Cloudix is a powerful and user-friendly cloud storage solution designed for seam
    ```
 
 2. **Environment Variables**:
-   Copy `.env.local.example` to `.env.local` and fill in the required environment variables.
+   Copy `.env.local.example` to `.env.local` and fill in the required environment variables. Ensure to update the following variables specific to Clerk and Convex:
 
    ```bash
    cp .env.local.example .env.local
+   # Update .env.local with the necessary variables, including CLERK_HOSTNAME and CLERK_WEBHOOK_SECRET for Clerk integration.
    ```
 
-3. **Install Dependencies**:
+3. **Create Webhook from Clerk**:
+
+   - Log in to your Clerk dashboard and create a webhook for integration. Update the `CLERK_WEBHOOK_SECRET` environment variable with the generated webhook secret, and update convex environment from setting and add `CLERK_WEBHOOK_SECRET` `CLERK_HOSTNAME`
+
+4. **Install Dependencies**:
 
    ```bash
    npm install
    ```
 
-4. **Run the Development Server**:
+5. **Run the Development Server**:
    ```bash
    npm run dev
    ```
