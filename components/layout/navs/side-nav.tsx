@@ -24,7 +24,7 @@ export function SideNav() {
 
   console.log(theme, "theme");
   return (
-    <div className="flex h-screen w-40 flex-col gap-4 border-r p-2 pt-10">
+    <div className="flex gap-4 p-2 pt-10 md:container md:mx-auto">
       {SIDE_NAV_LINKS.map(({ name, href, icon: Icon }) => (
         <Link key={name} href={href}>
           <Button

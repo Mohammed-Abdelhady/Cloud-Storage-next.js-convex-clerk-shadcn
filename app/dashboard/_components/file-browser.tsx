@@ -87,16 +87,16 @@ export function FileBrowser({
     })) ?? [];
 
   return (
-    <div>
-      <div className="my-10 flex items-center justify-between">
-        <h1 className="text-4xl font-bold">{title}</h1>
+    <div className="p-3">
+      <div className="my-10 flex flex-col justify-between md:flex-row md:items-center">
+        <h1 className="mb-3 text-4xl font-bold">{title}</h1>
         <div className="flex gap-3">
           <SearchBar query={searchQuery} setQuery={setSearchQuery} />
           <UploadButton />
         </div>
       </div>
       <Tabs defaultValue="grid">
-        <div className="mb-2 flex items-center justify-between">
+        <div className="flex flex-col justify-between md:flex-row md:items-center">
           <TabsList>
             <TabsTrigger value="grid" className="flex items-center gap-2">
               <GridIcon />
@@ -106,7 +106,7 @@ export function FileBrowser({
               <RowsIcon /> Table
             </TabsTrigger>
           </TabsList>
-          <div className="flex items-center gap-2">
+          <div className="my-3 flex items-center gap-2 md:my-0">
             <Label htmlFor="file-type-select">Filter by Type</Label>
             <Select value={fileType} onValueChange={(newType) => setFileType(newType as any)}>
               <SelectTrigger id="file-type-select" className="w-[180px]">
@@ -128,7 +128,7 @@ export function FileBrowser({
           </div>
         )}
         <TabsContent value="grid">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {fileList.map((file: any) => (
               <FileCard key={file._id} file={file} />
             ))}
