@@ -68,6 +68,13 @@ export function UploadButton() {
       return;
     }
 
+    if (!organization?.organization) {
+      toast({
+        variant: "destructive",
+        title: "Organization ",
+        description: "Please create an organization to proceed.",
+      });
+    }
     const postUrl = await generateUploadUrlMutation();
 
     const fileType = values.file[0].type;
