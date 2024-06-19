@@ -46,7 +46,11 @@ const RIGHT_SIDE_FEATURE = [
 
 const Availability = () => {
   return (
-    <Flex isCol={false} className="justify-between gap-6 py-10 md:py-20" id="availability">
+    <Flex
+      isCol={false}
+      className="flex-col justify-between gap-6 py-10 md:flex-row md:py-20"
+      id="availability"
+    >
       {/* Left Section */}
       <div className="flex-1">
         <Heading tag="h2" size="medium">
