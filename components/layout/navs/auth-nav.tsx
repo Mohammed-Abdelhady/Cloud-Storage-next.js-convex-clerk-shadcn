@@ -57,10 +57,7 @@ const AuthNav = () => {
         <div className="ml-auto" />
         {/* Authnetication */}
         <div>
-          <OrganizationSwitcher
-            appearance={theme == "dark" ? (dark as any) : undefined}
-            skipInvitationScreen
-          />
+          <OrganizationSwitcher appearance={theme == "dark" ? (dark as any) : undefined} />
         </div>
         <div>
           <UserButton />
