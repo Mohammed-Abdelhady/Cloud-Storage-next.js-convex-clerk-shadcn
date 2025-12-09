@@ -14,11 +14,6 @@ Embrace the versatility of multi-organization support, where each organization e
 - **Clerk**: Authentication and user management made easy.
 - **Shadcn**: A component library for building consistent and accessible user interfaces.
 
-## Demo
-
-- **Live Demo**: [Cloudix Demo Link](https://cloudix.vercel.app/)
-- **YouTube Demo**: [Youtube Link](https://youtu.be/Aan6-BmApnc)
-
 ## Requirements
 
 ### Software Requirements
