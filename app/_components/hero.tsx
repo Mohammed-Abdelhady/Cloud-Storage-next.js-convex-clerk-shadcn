@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import Heading from "../../components/base/typography/heading";
 import Paragraph from "../../components/base/typography/paragraph";
-import { Button } from "../../components/ui/button";
 import Image from "next/image";
 import Flex from "@/components/base/center";
 import LoginAction from "@/components/auth/login-action";
